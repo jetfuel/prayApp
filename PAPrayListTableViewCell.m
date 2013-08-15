@@ -23,9 +23,15 @@
         UIPanGestureRecognizer* panGR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightToCheck:)];
         [self addGestureRecognizer:panGR];
         
-        checkConfirmView = [[UIView alloc] initWithFrame:CGRectMake(-320, 0, 320, self.frame.size.height)];
-        checkConfirmView.backgroundColor = [UIColor greenColor];
-        [self.contentView addSubview:checkConfirmView];
+        checkConfirmView = [[UIView alloc] initWithFrame:CGRectMake(-260, 0, 320, self.frame.size.height)];
+        checkConfirmView.backgroundColor = [UIColor lightGrayColor];
+        UILabel* markLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 0, 60, 60)];
+        markLabel.text = @">";
+        markLabel.textAlignment = NSTextAlignmentCenter;
+        [checkConfirmView addSubview:markLabel];
+        
+        self.contentView.backgroundColor = [UIColor whiteColor];
+        [self insertSubview:checkConfirmView atIndex:0];
         
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
@@ -49,34 +55,49 @@
 
 - (void)swipeRightToCheck:(UIPanGestureRecognizer*) gr{
     if ([gr state] == UIGestureRecognizerStateBegan){
-        NSLog(@"Good job");
         CGRect frame = checkConfirmView.frame;
         frame.size.height = self.frame.size.height;
         checkConfirmView.frame = frame;
-        
-        NSLog(@"Hey     %@", NSStringFromCGRect(self.contentView.frame));
-        NSLog(@"yeah... %@", NSStringFromCGRect(self.accessoryView.frame));
     }
     else if ([gr state] == UIGestureRecognizerStateEnded){
-//        [UIView animateWithDuration:0.1 animations:^{
-//            CGRect frame = self.contentView.frame;
-//            frame.origin.x = 0;
-//            self.contentView.frame = frame;
-//
-//        }];
-        
         [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
             CGRect frame = self.contentView.frame;
             frame.origin.x = 0;
             self.contentView.frame = frame;
+            
+            checkConfirmView.alpha = 0;
+            frame = checkConfirmView.frame;
+            frame.origin.x = -260;
+            checkConfirmView.frame = frame;
+            
         } completion:^(BOOL finished) {
         }];
     }
     else{
         CGFloat xValue = [gr translationInView:self.contentView].x;
 
+        CGFloat ratio = 0;
+        if (xValue > 60)
+            ratio = 1;
+        else
+            ratio = xValue/60;
+        
+        if (ratio == 1)
+            checkConfirmView.backgroundColor = [UIColor greenColor];
+        else
+            checkConfirmView.backgroundColor = [UIColor lightGrayColor];
+        
         [UIView animateWithDuration:0.1 animations:^{
-
+            checkConfirmView.alpha = ratio;
+            
+            // -260
+            if (ratio == 1){
+                CGRect frame = checkConfirmView.frame;
+                frame.origin.x = xValue -320;
+                checkConfirmView.frame = frame;
+            }
+            
+            NSLog(@"The frame: %@", NSStringFromCGRect(checkConfirmView.frame));
             CGRect frame = self.contentView.frame;
             frame.origin.x = xValue;
             self.contentView.frame = frame;
