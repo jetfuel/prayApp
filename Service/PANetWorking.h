@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFNetworking.h"
+@interface PANetWorking : AFHTTPClient
 
-@interface PANetWorking : NSObject
-
++(id)shareInstance;
 @end

@@ -10,4 +10,14 @@
 
 @implementation PANetWorking
 
++(id)shareInstance{
+    static PANetWorking * _shareInstance= nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _shareInstance = [[PANetWorking alloc] initWithBaseURL:[NSURL URLWithString:@"http://www.prayerapp.com"]];
+    });
+
+    return _shareInstance;
+}
 @end
