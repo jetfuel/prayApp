@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "PAHomeViewController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -16,6 +16,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    UIStoryboard *myBookStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+    PAHomeViewController* homeVC = [myBookStoryboard instantiateInitialViewController];
+    
+    [self.window setRootViewController:homeVC];
     return YES;
 }
 
