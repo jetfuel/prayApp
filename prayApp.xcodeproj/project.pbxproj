@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0A39CB17C68901002FF4A3 /* PAPrayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A39CA17C68901002FF4A3 /* PAPrayerService.m */; };
 		0D1EDF3917B05CEC000D6EA4 /* PAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1EDF3817B05CEC000D6EA4 /* PAComment.m */; };
 		0D1EDF3C17B05DEF000D6EA4 /* PAPrayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1EDF3B17B05DEF000D6EA4 /* PAPrayer.m */; };
 		0D549B0C17BB17A5008E0216 /* PAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D549B0B17BB17A5008E0216 /* PAHomeViewController.m */; };
 		0D549B0E17BB188C008E0216 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D549B0D17BB188C008E0216 /* Storyboard.storyboard */; };
 		0D549B2017BC101F008E0216 /* PAPrayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D549B1F17BC101F008E0216 /* PAPrayListTableViewCell.m */; };
+		0D8B6BB017BED0C10055223A /* PAPrayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */; };
 		0DDCDCDB17BAFB8E00DFAAFE /* PANetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCDA17BAFB8E00DFAAFE /* PANetWorking.m */; };
 		0DDCDCF017BAFBDB00DFAAFE /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCDE17BAFBDB00DFAAFE /* AFHTTPClient.m */; };
 		0DDCDCF117BAFBDB00DFAAFE /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCE017BAFBDB00DFAAFE /* AFHTTPRequestOperation.m */; };
@@ -49,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D0A39C917C68901002FF4A3 /* PAPrayerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PAPrayerService.h; path = Service/PAPrayerService.h; sourceTree = "<group>"; };
+		0D0A39CA17C68901002FF4A3 /* PAPrayerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAPrayerService.m; path = Service/PAPrayerService.m; sourceTree = "<group>"; };
 		0D1EDF3717B05CEC000D6EA4 /* PAComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PAComment.h; path = model/PAComment.h; sourceTree = "<group>"; };
 		0D1EDF3817B05CEC000D6EA4 /* PAComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAComment.m; path = model/PAComment.m; sourceTree = "<group>"; };
 		0D1EDF3A17B05DEF000D6EA4 /* PAPrayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PAPrayer.h; path = model/PAPrayer.h; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		0D549B0D17BB188C008E0216 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0D549B1E17BC101F008E0216 /* PAPrayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPrayListTableViewCell.h; sourceTree = "<group>"; };
 		0D549B1F17BC101F008E0216 /* PAPrayListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPrayListTableViewCell.m; sourceTree = "<group>"; };
+		0D8B6BAE17BED0C10055223A /* PAPrayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPrayerDetailViewController.h; sourceTree = "<group>"; };
+		0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPrayerDetailViewController.m; sourceTree = "<group>"; };
 		0DDCDCD917BAFB8E00DFAAFE /* PANetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PANetWorking.h; path = Service/PANetWorking.h; sourceTree = "<group>"; };
 		0DDCDCDA17BAFB8E00DFAAFE /* PANetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PANetWorking.m; path = Service/PANetWorking.m; sourceTree = "<group>"; };
 		0DDCDCDD17BAFBDB00DFAAFE /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -124,6 +130,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D0A39C517C6888B002FF4A3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0DDCDCD917BAFB8E00DFAAFE /* PANetWorking.h */,
+				0DDCDCDA17BAFB8E00DFAAFE /* PANetWorking.m */,
+				0D0A39C917C68901002FF4A3 /* PAPrayerService.h */,
+				0D0A39CA17C68901002FF4A3 /* PAPrayerService.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		0D549B0F17BBF59F008E0216 /* MyPrayerList */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +149,8 @@
 				0D549B0D17BB188C008E0216 /* Storyboard.storyboard */,
 				0D549B1E17BC101F008E0216 /* PAPrayListTableViewCell.h */,
 				0D549B1F17BC101F008E0216 /* PAPrayListTableViewCell.m */,
+				0D8B6BAE17BED0C10055223A /* PAPrayerDetailViewController.h */,
+				0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */,
 			);
 			name = MyPrayerList;
 			sourceTree = "<group>";
@@ -165,10 +184,9 @@
 		0DDFA80E17A9C3EC00D9B794 = {
 			isa = PBXGroup;
 			children = (
+				0D0A39C517C6888B002FF4A3 /* Service */,
 				0D549B0F17BBF59F008E0216 /* MyPrayerList */,
 				0DDCDCDC17BAFBDB00DFAAFE /* AFNetworking */,
-				0DDCDCD917BAFB8E00DFAAFE /* PANetWorking.h */,
-				0DDCDCDA17BAFB8E00DFAAFE /* PANetWorking.m */,
 				0D1EDF3A17B05DEF000D6EA4 /* PAPrayer.h */,
 				0D1EDF3B17B05DEF000D6EA4 /* PAPrayer.m */,
 				0D1EDF3717B05CEC000D6EA4 /* PAComment.h */,
@@ -368,6 +386,8 @@
 				0DDCDCF517BAFBDB00DFAAFE /* AFPropertyListRequestOperation.m in Sources */,
 				0DDCDCF617BAFBDB00DFAAFE /* AFURLConnectionOperation.m in Sources */,
 				0DDCDCF717BAFBDB00DFAAFE /* AFXMLRequestOperation.m in Sources */,
+				0D0A39CB17C68901002FF4A3 /* PAPrayerService.m in Sources */,
+				0D8B6BB017BED0C10055223A /* PAPrayerDetailViewController.m in Sources */,
 				0DDCDCF817BAFBDB00DFAAFE /* UIImageView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

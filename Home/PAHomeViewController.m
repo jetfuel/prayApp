@@ -9,6 +9,9 @@
 #import "PAHomeViewController.h"
 #import "PAPrayer.h"
 #import "PAPrayListTableViewCell.h"
+#import "PAPrayerDetailViewController.h"
+#import "PAPrayerService.h"
+
 @interface PAHomeViewController ()
 
 @end
@@ -19,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        prayerItemList = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -35,11 +38,12 @@
     }
     
     [prayListTableView registerClass:[PAPrayListTableViewCell class] forCellReuseIdentifier:@"CellI"];
-    
-//    UILabel* testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 00, 320, 60)];
-//    testLabel.text = @"Test";
-//    
-//    [self.view addSubview:testLabel];
+    [[PAPrayerService shareInstance] getPrayerList:@"1" success:^(PANetWorking *service, id responseObject) {
+        prayerItemList = responseObject;
+        [prayListTableView reloadData];
+    } failure:^(PANetWorking *service, NSError *error) {
+        ;
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +53,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return [prayerItemList count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -64,10 +68,15 @@
     
     PAPrayer* prayItme = [[PAPrayer alloc] init];
     prayItme.prayerTitle = @"Pray for health";
-    prayItme.prayerContext = @"asdfas dfas";
-//    prayItme.prayerID = [];
+    prayItme.prayerContext = @"Pter Lin in Family";
     [cell updateWithPrayer:prayItme];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    PAPrayerDetailViewController* prayerDetailVC = [[PAPrayerDetailViewController alloc] init];
+    
+    [self.navigationController pushViewController:prayerDetailVC animated:YES];
 }
 @end

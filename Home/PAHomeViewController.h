@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PAHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
-    
+    NSMutableArray* prayerItemList;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView* prayListTableView;
