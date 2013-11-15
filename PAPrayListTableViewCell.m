@@ -13,6 +13,7 @@
 @interface PAPrayListTableViewCell (){
     UIPanGestureRecognizer* panGR;
     UILabel* markLabel;
+    UILabel* accessoryView;
 }
 
 @end
@@ -26,9 +27,10 @@
         // Initialization code
         
         // TODO: Will Need an image
-        UILabel* accessoryView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 33, 33)];
+        accessoryView = [[UILabel alloc] initWithFrame:CGRectMake(320 - 33, 0, 33, self.bounds.size.height)];
         accessoryView.text = @">";
-        self.accessoryView = accessoryView;
+//        self.accessoryView = accessoryView;
+        [self.contentView addSubview:accessoryView];
         
         // Set up the gesture recognizer
         panGR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightToCheck:)];
@@ -49,6 +51,13 @@
     return self;
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    CGRect frame = accessoryView.frame;
+    frame.size.height = self.frame.size.height;
+    accessoryView.frame = frame;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

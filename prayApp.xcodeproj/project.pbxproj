@@ -13,6 +13,8 @@
 		0D549B0C17BB17A5008E0216 /* PAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D549B0B17BB17A5008E0216 /* PAHomeViewController.m */; };
 		0D549B0E17BB188C008E0216 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D549B0D17BB188C008E0216 /* Storyboard.storyboard */; };
 		0D549B2017BC101F008E0216 /* PAPrayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D549B1F17BC101F008E0216 /* PAPrayListTableViewCell.m */; };
+		0D850ABD1831C56C008AC10E /* pray_detail_icon_example@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D850ABB1831C56C008AC10E /* pray_detail_icon_example@2x.png */; };
+		0D850ABE1831C56C008AC10E /* pray_detail_icon_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */; };
 		0D8B6BB017BED0C10055223A /* PAPrayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */; };
 		0DDCDCDB17BAFB8E00DFAAFE /* PANetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCDA17BAFB8E00DFAAFE /* PANetWorking.m */; };
 		0DDCDCF017BAFBDB00DFAAFE /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCDE17BAFBDB00DFAAFE /* AFHTTPClient.m */; };
@@ -62,6 +64,8 @@
 		0D549B0D17BB188C008E0216 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0D549B1E17BC101F008E0216 /* PAPrayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPrayListTableViewCell.h; sourceTree = "<group>"; };
 		0D549B1F17BC101F008E0216 /* PAPrayListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPrayListTableViewCell.m; sourceTree = "<group>"; };
+		0D850ABB1831C56C008AC10E /* pray_detail_icon_example@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pray_detail_icon_example@2x.png"; sourceTree = "<group>"; };
+		0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pray_detail_icon_example.png; sourceTree = "<group>"; };
 		0D8B6BAE17BED0C10055223A /* PAPrayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPrayerDetailViewController.h; sourceTree = "<group>"; };
 		0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPrayerDetailViewController.m; sourceTree = "<group>"; };
 		0DDCDCD917BAFB8E00DFAAFE /* PANetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PANetWorking.h; path = Service/PANetWorking.h; sourceTree = "<group>"; };
@@ -155,6 +159,15 @@
 			name = MyPrayerList;
 			sourceTree = "<group>";
 		};
+		0D850ABA1831C55A008AC10E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0D850ABB1831C56C008AC10E /* pray_detail_icon_example@2x.png */,
+				0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		0DDCDCDC17BAFBDB00DFAAFE /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +244,7 @@
 		0DDFA82117A9C3EC00D9B794 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0D850ABA1831C55A008AC10E /* Images */,
 				0DDFA82217A9C3EC00D9B794 /* prayApp-Info.plist */,
 				0DDFA82317A9C3EC00D9B794 /* InfoPlist.strings */,
 				0DDFA82617A9C3EC00D9B794 /* main.m */,
@@ -333,10 +347,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DDFA82517A9C3EC00D9B794 /* InfoPlist.strings in Resources */,
+				0D850ABE1831C56C008AC10E /* pray_detail_icon_example.png in Resources */,
 				0DDFA82D17A9C3EC00D9B794 /* Default.png in Resources */,
 				0DDFA82F17A9C3EC00D9B794 /* Default@2x.png in Resources */,
 				0DDFA83117A9C3EC00D9B794 /* Default-568h@2x.png in Resources */,
 				0D549B0E17BB188C008E0216 /* Storyboard.storyboard in Resources */,
+				0D850ABD1831C56C008AC10E /* pray_detail_icon_example@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

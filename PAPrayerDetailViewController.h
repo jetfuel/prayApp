@@ -17,4 +17,6 @@
 @property (nonatomic, strong) IBOutlet UILabel* lastUpdatedLabel;
 
 @property (nonatomic, strong) PAPrayer* prayerItem;
+
+- (void) updateWithPrayerItem:(PAPrayer*)prayer;
 @end

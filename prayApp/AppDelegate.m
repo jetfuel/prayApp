@@ -17,6 +17,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:143.0/255.0 green:91.0/255.0 blue:79.0/255.0 alpha:1]];
+    
     UIStoryboard *myBookStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
     PAHomeViewController* homeVC = [myBookStoryboard instantiateInitialViewController];
     
