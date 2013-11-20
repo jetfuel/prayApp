@@ -28,7 +28,7 @@
     PAPrayer* prayItme = [[PAPrayer alloc] init];
     prayItme.prayerTitle = @"Pray for health";
     prayItme.prayerContext = @"Pter Lin in Family";
-    
+    prayItme.groupName = @"canaan church";
     
     success(self, @[prayItme]);
 

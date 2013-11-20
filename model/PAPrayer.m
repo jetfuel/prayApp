@@ -53,7 +53,7 @@
 }
 
 - (NSString*)description{
-    NSString* string = [NSString stringWithFormat:@"id:%@, pray: %@", self.prayerID, self.prayerTitle];
+    NSString* string = [NSString stringWithFormat:@"id:%@, title:%@, group:%@, detail:%@", self.prayerID, self.prayerTitle, self.groupName, self.prayerContext];
     return string;
 }
 @end

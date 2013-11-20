@@ -36,7 +36,6 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     if (prayListTableView == nil){
-        NSLog(@"asdf");
         prayListTableView = [[UITableView alloc] init];
     }
     
@@ -71,10 +70,12 @@
         cell = [[PAPrayListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellI"];
     }
     
-    PAPrayer* prayItme = [[PAPrayer alloc] init];
-    prayItme.prayerTitle = @"Pray for health";
-    prayItme.prayerContext = @"Pter Lin in Family";
-    [cell updateWithPrayer:prayItme];
+    
+//    PAPrayer* prayItme = [[PAPrayer alloc] init];
+//    prayItme.prayerTitle = @"Pray for health";
+//    prayItme.prayerContext = @"Pter Lin in Family";
+    [cell updateWithPrayer:[prayerItemList objectAtIndex:indexPath.row]];
+    
     
     return cell;
 }
@@ -83,8 +84,6 @@
     UIStoryboard* mainStoryBoard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
                                     
     PAPrayerDetailViewController* prayerDetailVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PAPrayerDetailViewController"];//[[PAPrayerDetailViewController alloc] init];
-    
-
     [self.navigationController pushViewController:prayerDetailVC animated:YES];
     [prayerDetailVC updateWithPrayerItem:[prayerItemList objectAtIndex:indexPath.row]];
 
