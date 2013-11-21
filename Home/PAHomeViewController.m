@@ -70,12 +70,7 @@
         cell = [[PAPrayListTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellI"];
     }
     
-    
-//    PAPrayer* prayItme = [[PAPrayer alloc] init];
-//    prayItme.prayerTitle = @"Pray for health";
-//    prayItme.prayerContext = @"Pter Lin in Family";
     [cell updateWithPrayer:[prayerItemList objectAtIndex:indexPath.row]];
-    
     
     return cell;
 }

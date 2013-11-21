@@ -34,6 +34,10 @@
         prayerTitleLabel = [[UILabel alloc] init];
         prayerGroupLabel = [[UILabel alloc] init];
         prayerDetailLabel = [[UILabel alloc] init];
+        prayerTitleLabel.font = [UIFont fontWithName:@"OpenSans-Bold" size:12];
+        prayerGroupLabel.font = [UIFont fontWithName:@"OpenSans-Regular" size:12];
+        prayerDetailLabel.font = [UIFont fontWithName:@"OpenSans-Light" size:12];
+
         
         [prayerDetailView addSubview:prayerTitleLabel];
         [prayerDetailView addSubview:prayerGroupLabel];
