@@ -13,6 +13,7 @@
     
     UIView* prayerDetailView;
     
+    NSMutableArray* commentListing;
     BOOL isLoadingChats;
     UIActivityIndicatorView* loadingChatIndicator;
 }

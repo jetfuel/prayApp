@@ -7,7 +7,8 @@
 //
 
 #import "PAPrayerDetailViewController.h"
-
+#import "PAPrayerService.h"
+#import "PAComment.h"
 #define kLeftMargin 20
 #define kTopMargin 10
 @interface PAPrayerDetailViewController ()
@@ -28,6 +29,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self){
+        commentListing = [[NSMutableArray alloc] init];
         descriptionImageView = [[UIImageView alloc] init];
         
         prayerDetailView = [[UIView alloc] init];
@@ -68,6 +70,7 @@
 
 - (void) updateWithPrayerItem:(PAPrayer*)prayer{
     self.prayerItem = prayer;
+    [commentListing removeAllObjects];
     
     prayerTitleLabel.text = self.prayerItem.prayerTitle;
     prayerGroupLabel.text = [NSString stringWithFormat:@"%@ in %@", [self.prayerItem.userNameString uppercaseString],[self.prayerItem.groupName uppercaseString]];
@@ -85,6 +88,17 @@
     [self updateprayerDetailViewLayout];
     isLoadingChats = YES;
     [contentTableView reloadData];
+    
+    [[PAPrayerService shareInstance] getChatListing:self.prayerItem.prayerID offset:0 limits:10 success:^(PANetWorking *service, id responseObject) {
+        isLoadingChats = NO;
+        
+        [commentListing addObjectsFromArray:responseObject];
+        
+        [contentTableView reloadData];
+    } failure:^(PANetWorking *service, NSError *error) {
+        isLoadingChats = NO;
+        [contentTableView reloadData];
+    }];
 }
 
 - (void)updateprayerDetailViewLayout{
@@ -114,50 +128,77 @@
 //    else if (indexPath.row == 1){
 //        return prayerDetailView.frame.size.height;
 //    }
-    if (indexPath.row == 0){
-        return prayerDetailView.frame.size.height;
-    }
-    else if (indexPath.row == 1){
-        if (isLoadingChats)
-            return 40;
+    if (indexPath.section == 0){
+        if (indexPath.row == 0){
+            return prayerDetailView.frame.size.height;
+        }
+        else if (indexPath.row == 1){
+            if (isLoadingChats)
+                return 40;
+            else
+                return 0;
+        }
         else
             return 0;
+    }
+    else if (indexPath.section == 1){
+        //TODO: Dynamic height
+        return 50;
     }
     else
         return 0;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0)
+        return 2;
+    else if (section == 1)
+        return [commentListing count];
+    else
+        return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
-
-//    if (indexPath.row == 0){
-//        descriptionImageView.image = [UIImage imageNamed:@"pray_detail_icon_example.png"];
-//        descriptionImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, descriptionImageView.image.size.height);
-//        [cell.contentView addSubview:descriptionImageView];
-//    }
-//    else if (indexPath.row == 1){
-    if (indexPath.row == 0){
-        [cell.contentView addSubview:prayerDetailView];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    }
-    else{
-        if (loadingChatIndicator == nil){
-            loadingChatIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-            [loadingChatIndicator startAnimating];
-            [loadingChatIndicator setHidesWhenStopped:YES];
-            loadingChatIndicator.center = cell.contentView.center;
-            [cell.contentView addSubview:loadingChatIndicator];
-            
-            [cell.contentView setBackgroundColor:[UIColor colorWithRed:(242.0f/255.0f) green:(242.0f/255.0f) blue:(242.0f/255.0f) alpha:1]];
+    if (indexPath.section == 0) {
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        if (!cell){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         }
+        
+        //    if (indexPath.row == 0){
+        //        descriptionImageView.image = [UIImage imageNamed:@"pray_detail_icon_example.png"];
+        //        descriptionImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, descriptionImageView.image.size.height);
+        //        [cell.contentView addSubview:descriptionImageView];
+        //    }
+        //    else if (indexPath.row == 1){
+        if (indexPath.row == 0){
+            [cell.contentView addSubview:prayerDetailView];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        }
+        else{
+            if (loadingChatIndicator == nil){
+                loadingChatIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                [loadingChatIndicator startAnimating];
+                [loadingChatIndicator setHidesWhenStopped:YES];
+                loadingChatIndicator.center = cell.contentView.center;
+                [cell.contentView addSubview:loadingChatIndicator];
+                
+                [cell.contentView setBackgroundColor:[UIColor colorWithRed:(242.0f/255.0f) green:(242.0f/255.0f) blue:(242.0f/255.0f) alpha:1]];
+            }
+        }
+        return cell;
     }
-    return cell;
+    else {
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
+        if (!cell){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"commentCell"];
+        }
+        PAComment * comment = [commentListing objectAtIndex:indexPath.row];
+        cell.textLabel.text = comment.comment;
+        return cell;
+    }
 }
 @end

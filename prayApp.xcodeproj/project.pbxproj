@@ -182,16 +182,24 @@
 			name = fonts;
 			sourceTree = "<group>";
 		};
+		0D367D7B183EEAD7008F661B /* MIP */ = {
+			isa = PBXGroup;
+			children = (
+				0D8B6BAE17BED0C10055223A /* PAPrayerDetailViewController.h */,
+				0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */,
+			);
+			name = MIP;
+			sourceTree = "<group>";
+		};
 		0D549B0F17BBF59F008E0216 /* MyPrayerList */ = {
 			isa = PBXGroup;
 			children = (
+				0D367D7B183EEAD7008F661B /* MIP */,
 				0D549B0A17BB17A5008E0216 /* PAHomeViewController.h */,
 				0D549B0B17BB17A5008E0216 /* PAHomeViewController.m */,
 				0D549B0D17BB188C008E0216 /* Storyboard.storyboard */,
 				0D549B1E17BC101F008E0216 /* PAPrayListTableViewCell.h */,
 				0D549B1F17BC101F008E0216 /* PAPrayListTableViewCell.m */,
-				0D8B6BAE17BED0C10055223A /* PAPrayerDetailViewController.h */,
-				0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */,
 			);
 			name = MyPrayerList;
 			sourceTree = "<group>";
