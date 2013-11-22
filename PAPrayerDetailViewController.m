@@ -9,6 +9,7 @@
 #import "PAPrayerDetailViewController.h"
 #import "PAPrayerService.h"
 #import "PAComment.h"
+#import "PACommentTableViewCell.h"
 #define kLeftMargin 20
 #define kTopMargin 10
 @interface PAPrayerDetailViewController ()
@@ -143,7 +144,7 @@
     }
     else if (indexPath.section == 1){
         //TODO: Dynamic height
-        return 50;
+        return [PACommentTableViewCell estimateCellheightWithComment:[commentListing objectAtIndex:indexPath.row]];
     }
     else
         return 0;
@@ -192,12 +193,12 @@
         return cell;
     }
     else {
-        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
+        PACommentTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell"];
         if (!cell){
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"commentCell"];
+            cell = [[PACommentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"commentCell"];
         }
         PAComment * comment = [commentListing objectAtIndex:indexPath.row];
-        cell.textLabel.text = comment.comment;
+        [cell updateWithComment:comment];
         return cell;
     }
 }

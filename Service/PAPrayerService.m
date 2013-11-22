@@ -48,6 +48,12 @@
         PAComment *commentOne = [[PAComment alloc] initWithDictionary:dataDict];
         
         [commentList addObject:commentOne];
+        
+        NSDictionary* dataDictTWo = [[NSDictionary alloc] initWithObjectsAndKeys:@"9913", @"userID", @"Ouch! That sucks. take care.", @"comment",@"Johnson Lee", @"userNameString", nil];
+        PAComment *commentTwo = [[PAComment alloc] initWithDictionary:dataDictTWo];
+        
+        [commentList addObject:commentTwo];
+        
         success(self, commentList);
     }
     else{

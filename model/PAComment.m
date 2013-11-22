@@ -28,7 +28,7 @@
             }
             
             if ([dict objectForKey:@"userNameString"]){
-                self.userID = [dict objectForKey:@"userNameString"];
+                self.userNameString = [dict objectForKey:@"userNameString"];
             }
             
             if ([dict objectForKey:@"createdDate"]){

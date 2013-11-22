@@ -20,6 +20,7 @@
 		0D367D78183D983A008F661B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D367D6E183D983A008F661B /* OpenSans-Regular.ttf */; };
 		0D367D79183D983A008F661B /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D367D6F183D983A008F661B /* OpenSans-Semibold.ttf */; };
 		0D367D7A183D983A008F661B /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D367D70183D983A008F661B /* OpenSans-SemiboldItalic.ttf */; };
+		0D367D7E183EEEE9008F661B /* PACommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D367D7D183EEEE9008F661B /* PACommentTableViewCell.m */; };
 		0D549B0C17BB17A5008E0216 /* PAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D549B0B17BB17A5008E0216 /* PAHomeViewController.m */; };
 		0D549B0E17BB188C008E0216 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D549B0D17BB188C008E0216 /* Storyboard.storyboard */; };
 		0D549B2017BC101F008E0216 /* PAPrayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D549B1F17BC101F008E0216 /* PAPrayListTableViewCell.m */; };
@@ -79,6 +80,8 @@
 		0D367D6E183D983A008F661B /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		0D367D6F183D983A008F661B /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		0D367D70183D983A008F661B /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiboldItalic.ttf"; path = "../OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		0D367D7C183EEEE9008F661B /* PACommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PACommentTableViewCell.h; sourceTree = "<group>"; };
+		0D367D7D183EEEE9008F661B /* PACommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PACommentTableViewCell.m; sourceTree = "<group>"; };
 		0D549B0A17BB17A5008E0216 /* PAHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PAHomeViewController.h; path = Home/PAHomeViewController.h; sourceTree = "<group>"; };
 		0D549B0B17BB17A5008E0216 /* PAHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAHomeViewController.m; path = Home/PAHomeViewController.m; sourceTree = "<group>"; };
 		0D549B0D17BB188C008E0216 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 			children = (
 				0D8B6BAE17BED0C10055223A /* PAPrayerDetailViewController.h */,
 				0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */,
+				0D367D7C183EEEE9008F661B /* PACommentTableViewCell.h */,
+				0D367D7D183EEEE9008F661B /* PACommentTableViewCell.m */,
 			);
 			name = MIP;
 			sourceTree = "<group>";
@@ -448,6 +453,7 @@
 				0DDFA82B17A9C3EC00D9B794 /* AppDelegate.m in Sources */,
 				0D549B0C17BB17A5008E0216 /* PAHomeViewController.m in Sources */,
 				0D1EDF3917B05CEC000D6EA4 /* PAComment.m in Sources */,
+				0D367D7E183EEEE9008F661B /* PACommentTableViewCell.m in Sources */,
 				0D1EDF3C17B05DEF000D6EA4 /* PAPrayer.m in Sources */,
 				0DDCDCDB17BAFB8E00DFAAFE /* PANetWorking.m in Sources */,
 				0DDCDCF017BAFBDB00DFAAFE /* AFHTTPClient.m in Sources */,
