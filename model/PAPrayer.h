@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString* prayerContext;
 @property (nonatomic, strong) NSString* prayerID;
 @property (nonatomic, strong) NSString* userID;
+@property (nonatomic, strong) NSString* userNameString;
 
 @property (nonatomic, strong) NSDate* createdDate;
 

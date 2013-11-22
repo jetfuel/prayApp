@@ -12,6 +12,9 @@
     UITableView* contentTableView;
     
     UIView* prayerDetailView;
+    
+    BOOL isLoadingChats;
+    UIActivityIndicatorView* loadingChatIndicator;
 }
 
 //IBOutlet

@@ -34,14 +34,14 @@
         prayerTitleLabel = [[UILabel alloc] init];
         prayerGroupLabel = [[UILabel alloc] init];
         prayerDetailLabel = [[UILabel alloc] init];
-        prayerTitleLabel.font = [UIFont fontWithName:@"OpenSans-Bold" size:12];
+        prayerTitleLabel.font = [UIFont fontWithName:@"OpenSans" size:20];
         prayerGroupLabel.font = [UIFont fontWithName:@"OpenSans-Regular" size:12];
-        prayerDetailLabel.font = [UIFont fontWithName:@"OpenSans-Light" size:12];
+        prayerDetailLabel.font = [UIFont fontWithName:@"OpenSans" size:14];
 
-        
         [prayerDetailView addSubview:prayerTitleLabel];
         [prayerDetailView addSubview:prayerGroupLabel];
         [prayerDetailView addSubview:prayerDetailLabel];
+        
     }
     return self;
 }
@@ -52,15 +52,12 @@
     // Custom initialization
     descriptionImageView = [[UIImageView alloc] init];
     
-    float labelWidth = self.view.bounds.size.width - 2 * kLeftMargin;
-    prayerDetailView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 200);
-    prayerTitleLabel.frame = CGRectMake(kLeftMargin, kTopMargin, labelWidth, 40);
-    prayerGroupLabel.frame = CGRectMake(kLeftMargin, prayerTitleLabel.frame.origin.y + prayerTitleLabel.frame.size.height, labelWidth, 40);
-    prayerDetailLabel.frame = CGRectMake(kLeftMargin, prayerGroupLabel.frame.origin.y + prayerGroupLabel.frame.size.height, labelWidth, 40);
-    
     [prayerDetailView addSubview:prayerTitleLabel];
     [prayerDetailView addSubview:prayerGroupLabel];
     [prayerDetailView addSubview:prayerDetailLabel];
+    
+    [contentTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [contentTableView setBackgroundColor:[UIColor colorWithRed:(242.0f/255.0f) green:(242.0f/255.0f) blue:(242.0f/255.0f) alpha:1]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,23 +68,60 @@
 
 - (void) updateWithPrayerItem:(PAPrayer*)prayer{
     self.prayerItem = prayer;
-    NSLog(@"hmmm %@", prayerTitleLabel.text);
-    prayerDetailLabel.text = self.prayerItem.prayerContext;
-    prayerTitleLabel.text = self.prayerItem.prayerTitle;
-    prayerGroupLabel.text = [self.prayerItem.groupName uppercaseString];
     
-    descriptionImageView.image = [UIImage imageNamed:@"pray_detail_icon_example.png"];
-    descriptionImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, descriptionImageView.image.size.height);
+    prayerTitleLabel.text = self.prayerItem.prayerTitle;
+    prayerGroupLabel.text = [NSString stringWithFormat:@"%@ in %@", [self.prayerItem.userNameString uppercaseString],[self.prayerItem.groupName uppercaseString]];
+    NSMutableAttributedString* attributedString = [[NSMutableAttributedString alloc] initWithString:prayerGroupLabel.text];
+    [attributedString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"OpenSans-semibold" size:12] range:[prayerGroupLabel.text rangeOfString:[self.prayerItem.userNameString uppercaseString]]];
+    [attributedString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"OpenSans" size:12] range:[prayerGroupLabel.text rangeOfString:@" in "]];
+    [attributedString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"OpenSans-semibold" size:12] range:[prayerGroupLabel.text rangeOfString:[self.prayerItem.groupName uppercaseString]]];
+    prayerGroupLabel.attributedText = attributedString;
+    prayerGroupLabel.textColor = [UIColor grayColor];
 
+    prayerDetailLabel.text = self.prayerItem.prayerContext;
+
+    descriptionImageView.image = [UIImage imageNamed:@"pray_detail_icon_example.png"];
+//    descriptionImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, descriptionImageView.image.size.height);
+    [self updateprayerDetailViewLayout];
+    isLoadingChats = YES;
     [contentTableView reloadData];
 }
 
+- (void)updateprayerDetailViewLayout{
+    float labelWidth = self.view.bounds.size.width - 2 * kLeftMargin;
+    prayerTitleLabel.frame = CGRectMake(kLeftMargin, kTopMargin, labelWidth, 40);
+    [prayerTitleLabel setNumberOfLines:0];
+    [prayerTitleLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    [prayerTitleLabel sizeToFit];
+    
+    prayerGroupLabel.frame = CGRectMake(kLeftMargin, prayerTitleLabel.frame.origin.y + prayerTitleLabel.frame.size.height + kTopMargin, labelWidth, 40);
+    [prayerGroupLabel setNumberOfLines:0];
+    [prayerGroupLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    [prayerGroupLabel sizeToFit];
+    
+    prayerDetailLabel.frame = CGRectMake(kLeftMargin, prayerGroupLabel.frame.origin.y + prayerGroupLabel.frame.size.height + kTopMargin, labelWidth, 40);
+    [prayerDetailLabel setNumberOfLines:0];
+    [prayerDetailLabel setLineBreakMode:NSLineBreakByWordWrapping];
+    [prayerDetailLabel sizeToFit];
+    
+    prayerDetailView.frame = CGRectMake(0, 0, self.view.bounds.size.width, prayerDetailLabel.frame.origin.y + prayerDetailLabel.frame.size.height + kTopMargin);
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (indexPath.row == 0){
+//        return [UIImage imageNamed:@"pray_detail_icon_example.png"].size.height;
+//    }
+//    else if (indexPath.row == 1){
+//        return prayerDetailView.frame.size.height;
+//    }
     if (indexPath.row == 0){
-        return [UIImage imageNamed:@"pray_detail_icon_example.png"].size.height;
+        return prayerDetailView.frame.size.height;
     }
     else if (indexPath.row == 1){
-        return 200;
+        if (isLoadingChats)
+            return 40;
+        else
+            return 0;
     }
     else
         return 0;
@@ -103,15 +137,27 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
 
+//    if (indexPath.row == 0){
+//        descriptionImageView.image = [UIImage imageNamed:@"pray_detail_icon_example.png"];
+//        descriptionImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, descriptionImageView.image.size.height);
+//        [cell.contentView addSubview:descriptionImageView];
+//    }
+//    else if (indexPath.row == 1){
     if (indexPath.row == 0){
-        descriptionImageView.image = [UIImage imageNamed:@"pray_detail_icon_example.png"];
-        descriptionImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, descriptionImageView.image.size.height);
-        [cell.contentView addSubview:descriptionImageView];
-    }
-    else if (indexPath.row == 1){
         [cell.contentView addSubview:prayerDetailView];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    }
+    else{
+        if (loadingChatIndicator == nil){
+            loadingChatIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            [loadingChatIndicator startAnimating];
+            [loadingChatIndicator setHidesWhenStopped:YES];
+            loadingChatIndicator.center = cell.contentView.center;
+            [cell.contentView addSubview:loadingChatIndicator];
+            
+            [cell.contentView setBackgroundColor:[UIColor colorWithRed:(242.0f/255.0f) green:(242.0f/255.0f) blue:(242.0f/255.0f) alpha:1]];
+        }
     }
     return cell;
-    
 }
 @end

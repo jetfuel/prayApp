@@ -9,7 +9,7 @@
 #import "PAPrayer.h"
 
 @implementation PAPrayer
-@synthesize prayerContext, prayerID, prayerTitle, userID, createdDate, statusUpdate, statusUpdateID, groupID, groupName;
+@synthesize prayerContext, prayerID, prayerTitle, userID, createdDate, statusUpdate, statusUpdateID, groupID, groupName, userNameString;
 
 
 - (id)initWithDictionary:(NSDictionary*)dict{

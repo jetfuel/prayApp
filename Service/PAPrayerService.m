@@ -26,9 +26,10 @@
               failure:(serviceFailureBlock) failure{
     
     PAPrayer* prayItme = [[PAPrayer alloc] init];
-    prayItme.prayerTitle = @"Pray for health";
-    prayItme.prayerContext = @"Pter Lin in Family";
+    prayItme.prayerTitle = @"Claudia's fever is really bad and this is it";
+    prayItme.prayerContext = @"Caludia had a nasty cold that's making it difficult for her to go to sleep. Please pray for healing and that it won't affect her work and life too much.";
     prayItme.groupName = @"canaan church";
+    prayItme.userNameString = @"John Brown";
     
     success(self, @[prayItme]);
 
