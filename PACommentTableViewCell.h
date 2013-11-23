@@ -12,6 +12,9 @@
     UIView* chatBubbleView;
     UILabel* userNameLabel;
     UILabel* commemtLabel;
+    
+    UIImageView* timeStampImageView;
+    UILabel* timeStampLabel;
 }
 
 - (void)updateWithComment:(PAComment*) commentItem;

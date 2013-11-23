@@ -9,7 +9,7 @@
 #import "PAComment.h"
 
 @implementation PAComment
-@synthesize comment, commentID, userID, createdDate, userNameString;
+@synthesize comment, commentID, userID, createdDate, userNameString, isPrayedAction;
 
 - (id)initWithDictionary:(NSDictionary*)dict{
     self = [super init];
@@ -17,7 +17,10 @@
         if (dict != nil){
             if ([dict objectForKey:@"comment"]){
                 self.comment = [dict objectForKey:@"comment"];
+                self.isPrayedAction = NO;
             }
+            else
+                isPrayedAction = YES;
             
             if ([dict objectForKey:@"commentID"]){
                 self.commentID = [dict objectForKey:@"commentID"];

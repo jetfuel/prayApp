@@ -19,18 +19,30 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        // Name
         userNameLabel = [[UILabel alloc] init];
         userNameLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:14];
 
+        // Comment
         commemtLabel = [[UILabel alloc] init];
         commemtLabel.font = [UIFont fontWithName:@"OpenSans" size:14];
         [commemtLabel setLineBreakMode:NSLineBreakByWordWrapping];
         [commemtLabel setNumberOfLines:0];
         
+        // TimeStamp
+        timeStampImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"prayer_detail_clock"]];
+        timeStampLabel = [[UILabel alloc] init];
+        [timeStampLabel setNumberOfLines:1];
+        timeStampLabel.textColor = [UIColor lightGrayColor];
+        timeStampLabel.font = [UIFont fontWithName:@"OpenSans" size:12];
+        
+        // Chatbubble
         chatBubbleView = [[UIView alloc] initWithFrame:CGRectMake(80, kTopMargin, kMaxChatBubbleWidth, 44)];
+        chatBubbleView.backgroundColor = [UIColor whiteColor];
         [chatBubbleView addSubview:userNameLabel];
         [chatBubbleView addSubview:commemtLabel];
-        chatBubbleView.backgroundColor = [UIColor whiteColor];
+        [chatBubbleView addSubview:timeStampImageView];
+        [chatBubbleView addSubview:timeStampLabel];
         
         userNameLabel.frame = CGRectMake(kChatMargin, kChatMargin, chatBubbleView.frame.size.width - 2 * kChatMargin, 10);
         commemtLabel.frame = CGRectMake(kChatMargin, kChatMargin + userNameLabel.frame.origin.y + userNameLabel.frame.size.height, chatBubbleView.frame.size.width - 2 * kChatMargin, 10);
@@ -51,18 +63,55 @@
 
 - (void)updateWithComment:(PAComment*) commentItem{
     // Initialize the cell
-    userNameLabel.text = commentItem.userNameString;
-    commemtLabel.text = commentItem.comment;
+    
+    // is this comment is a prayer action.
+    if (commentItem.isPrayedAction){
+        NSString* prayedString = [NSString stringWithFormat:@"%@ prayed", commentItem.userNameString];
+        NSMutableAttributedString* attributeString = [[NSMutableAttributedString alloc] initWithString:prayedString];
+        [attributeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"OpenSans" size:14] range:[prayedString rangeOfString:@" prayed"]];
+        userNameLabel.attributedText = attributeString;
+        commemtLabel.hidden = YES;
+    }
+    else{
+        userNameLabel.attributedText = nil;
+
+        userNameLabel.text = commentItem.userNameString;
+        commemtLabel.hidden = NO;
+        commemtLabel.text = commentItem.comment;
+    }
+    
+    timeStampLabel.text = @"15m";
 }
 
 - (void)layoutSubviews{
     [userNameLabel sizeToFit];
-    commemtLabel.frame = CGRectMake(kChatMargin, kChatMargin + userNameLabel.frame.origin.y + userNameLabel.frame.size.height, chatBubbleView.frame.size.width - 2 * kChatMargin, 10);
-    [commemtLabel sizeToFit];
+    [timeStampLabel sizeToFit];
     
-    CGRect frame = chatBubbleView.frame;
-    frame.size.height = commemtLabel.frame.origin.y + commemtLabel.frame.size.height + 2 * kChatMargin;
-    chatBubbleView.frame = frame;
+    if (commemtLabel.hidden == YES){
+        CGRect frame = chatBubbleView.frame;
+        frame.size.height = userNameLabel.frame.origin.y + userNameLabel.frame.size.height + 2 * kChatMargin;
+        frame.origin.x = kTopMargin;
+        frame.size.width = 320 - 2 * kTopMargin;
+        chatBubbleView.frame = frame;
+
+    }
+    else{
+        commemtLabel.frame = CGRectMake(kChatMargin, kChatMargin + userNameLabel.frame.origin.y + userNameLabel.frame.size.height, chatBubbleView.frame.size.width - 2 * kChatMargin, 10);
+        [commemtLabel sizeToFit];
+        
+        CGRect frame = chatBubbleView.frame;
+        frame.size.height = commemtLabel.frame.origin.y + commemtLabel.frame.size.height + 2 * kChatMargin;
+        chatBubbleView.frame = frame;
+    }
+    
+    CGRect frame = timeStampLabel.frame;
+    frame.origin.x = chatBubbleView.frame.size.width - kChatMargin - timeStampLabel.frame.size.width;
+    frame.origin.y = (userNameLabel.frame.size.height - timeStampLabel.frame.size.height) / 2  + kChatMargin;
+    timeStampLabel.frame = frame;
+    
+    frame = timeStampImageView.frame;
+    frame.origin.x = timeStampLabel.frame.origin.x - timeStampImageView.frame.size.width;
+    timeStampImageView.frame = frame;
 }
 
 + (float)estimateCellheightWithComment:(PAComment*) commentItem{
@@ -70,6 +119,10 @@
     
     CGSize commentLabelSize = [commentItem.comment sizeWithFont:[UIFont fontWithName:@"OpenSans" size:14] constrainedToSize:CGSizeMake(kMaxChatBubbleWidth, 999) lineBreakMode:NSLineBreakByWordWrapping];
     
-    return userLabelSize.height + commentLabelSize.height + 3 * kChatMargin + 2 * kTopMargin;
+    // If there is no comment, this is an item for the 
+    if (commentItem.isPrayedAction)
+        return userLabelSize.height + 2 * kTopMargin;
+    else
+        return userLabelSize.height + commentLabelSize.height + 3 * kChatMargin + 2 * kTopMargin;
 }
 @end

@@ -49,7 +49,12 @@
         
         [commentList addObject:commentOne];
         
-        NSDictionary* dataDictTWo = [[NSDictionary alloc] initWithObjectsAndKeys:@"9913", @"userID", @"Ouch! That sucks. take care.", @"comment",@"Johnson Lee", @"userNameString", nil];
+        NSDictionary* dataDictThree = [[NSDictionary alloc] initWithObjectsAndKeys:@"9912", @"userID", @"Susan Chan", @"userNameString", nil];
+        PAComment *commentThree = [[PAComment alloc] initWithDictionary:dataDictThree];
+        
+        [commentList addObject:commentThree];
+        
+        NSDictionary* dataDictTWo = [[NSDictionary alloc] initWithObjectsAndKeys:@"9913", @"userID", @"I have plenty of Nyquil at home if you need some. Lmk", @"comment",@"James Smith", @"userNameString", nil];
         PAComment *commentTwo = [[PAComment alloc] initWithDictionary:dataDictTWo];
         
         [commentList addObject:commentTwo];

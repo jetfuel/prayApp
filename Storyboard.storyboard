@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="854" y="227"/>
         </scene>
-        <!--Prayer Detail View Controller - Title-->
+        <!--Prayer Detail View Controller-->
         <scene sceneID="XwP-3U-B0H">
             <objects>
                 <viewController storyboardIdentifier="PAPrayerDetailViewController" id="uSI-az-SlN" customClass="PAPrayerDetailViewController" sceneMemberID="viewController">
@@ -106,7 +106,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="m2x-Sn-7bb"/>
+                    <navigationItem key="navigationItem" id="m2x-Sn-7bb"/>
                     <connections>
                         <outlet property="contentTableView" destination="FEp-uH-bS2" id="q9S-md-h9o"/>
                     </connections>

@@ -17,6 +17,6 @@
 @property (nonatomic, strong) NSString* userID;
 @property (nonatomic, strong) NSString* userNameString;
 @property (nonatomic, strong) NSDate* createdDate;
-
+@property (nonatomic) BOOL isPrayedAction;
 - (id)initWithDictionary:(NSDictionary*)dict;
 @end

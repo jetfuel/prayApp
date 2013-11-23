@@ -51,6 +51,7 @@
 		0DDFA83B17A9C3EC00D9B794 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDFA81C17A9C3EC00D9B794 /* Foundation.framework */; };
 		0DDFA84317A9C3EC00D9B794 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0DDFA84117A9C3EC00D9B794 /* InfoPlist.strings */; };
 		0DDFA84617A9C3EC00D9B794 /* prayAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDFA84517A9C3EC00D9B794 /* prayAppTests.m */; };
+		0DF186F01840487B00043177 /* prayer_detail_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF186EF1840487B00043177 /* prayer_detail_clock.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		0DDFA84217A9C3EC00D9B794 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0DDFA84417A9C3EC00D9B794 /* prayAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prayAppTests.h; sourceTree = "<group>"; };
 		0DDFA84517A9C3EC00D9B794 /* prayAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = prayAppTests.m; sourceTree = "<group>"; };
+		0DF186EF1840487B00043177 /* prayer_detail_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prayer_detail_clock.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 		0D850ABA1831C55A008AC10E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0DF186EF1840487B00043177 /* prayer_detail_clock.png */,
 				0D850ABB1831C56C008AC10E /* pray_detail_icon_example@2x.png */,
 				0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */,
 			);
@@ -397,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF186F01840487B00043177 /* prayer_detail_clock.png in Resources */,
 				0D367D76183D983A008F661B /* OpenSans-Light.ttf in Resources */,
 				0DDFA82517A9C3EC00D9B794 /* InfoPlist.strings in Resources */,
 				0D367D77183D983A008F661B /* OpenSans-LightItalic.ttf in Resources */,
