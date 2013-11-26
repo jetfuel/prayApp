@@ -65,6 +65,22 @@
         failure(self, [NSError errorWithDomain:@"not found" code:404 userInfo:nil]);
     }
 }
+
+- (void)setPrayActionForlisting:(NSString*)prayerID
+                         userId:(NSString*)userID
+                        success:(serviceSuccessBlock)success
+                        failure:(serviceFailureBlock)failure{
+    if ([prayerID isEqualToString:@"11111"]) {
+        // Mock data
+        NSDictionary* dataDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"9912", @"userID", @"Susan Chan", @"userNameString", nil];
+        PAComment *comment = [[PAComment alloc] initWithDictionary:dataDict];
+        
+        success(self, comment);
+    }
+    else{
+        failure(self, [NSError errorWithDomain:@"not found" code:404 userInfo:nil]);
+    }
+}
 - (void)test:(void (^)(void))action{
     ;
 }

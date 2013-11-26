@@ -7,10 +7,10 @@
 //
 
 #import "PAEncourageView.h"
-
+#import "PAPrayerService.h"
 #define kImageSize 44
 @implementation PAEncourageView
-@synthesize prayButton, shareButton, saveButton;
+@synthesize prayButton, shareButton, saveButton, delegate;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -44,7 +44,9 @@
 }
 */
 - (void)prayButtonDidClicked{
-    
+    if (delegate){
+        [delegate encourageViewDidPray:self];
+    }
 }
 
 - (void)shareButtonDidClicked{

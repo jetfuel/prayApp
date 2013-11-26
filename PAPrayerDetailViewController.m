@@ -12,6 +12,9 @@
 #import "PACommentTableViewCell.h"
 #define kLeftMargin 20
 #define kTopMargin 10
+
+#define kDetailSection 0
+#define kCommentSection 1
 @interface PAPrayerDetailViewController ()
 
 @end
@@ -140,7 +143,7 @@
 //    else if (indexPath.row == 1){
 //        return prayerDetailView.frame.size.height;
 //    }
-    if (indexPath.section == 0){
+    if (indexPath.section == kDetailSection){
         if (indexPath.row == 0){
             return prayerDetailView.frame.size.height;
         }
@@ -153,7 +156,7 @@
         else
             return 0;
     }
-    else if (indexPath.section == 1){
+    else if (indexPath.section == kCommentSection){
         //TODO: Dynamic height
         return [PACommentTableViewCell estimateCellheightWithComment:[commentListing objectAtIndex:indexPath.row]];
     }
@@ -165,16 +168,16 @@
     return 2;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0)
+    if (section == kDetailSection)
         return 2;
-    else if (section == 1)
+    else if (section == kCommentSection)
         return [commentListing count];
     else
         return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
+    if (indexPath.section == kDetailSection) {
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         if (!cell){
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
@@ -200,6 +203,9 @@
                 
                 [cell.contentView setBackgroundColor:[UIColor colorWithRed:(242.0f/255.0f) green:(242.0f/255.0f) blue:(242.0f/255.0f) alpha:1]];
             }
+            else
+                [loadingChatIndicator startAnimating];
+
         }
         return cell;
     }
@@ -239,5 +245,49 @@
         }
     }
     
+}
+
+//encourageView delegate
+- (void)encourageViewDidPray:(id)encourageView{
+    isLoadingChats = YES;
+    [contentTableView reloadData];
+//    [[PAPrayerService shareInstance] setPrayActionForlisting:prayerItem.prayerID userId:@"9912" success:^(PANetWorking *service, id responseObject) {
+//        isLoadingChats = NO;
+//        [contentTableView reloadData];
+//
+//        if ([responseObject isKindOfClass:[PAComment class]]){
+//            PAComment* comment = responseObject;
+//            [commentListing insertObject:comment atIndex:0];
+//            NSIndexPath *path1 = [NSIndexPath indexPathForRow:0 inSection:kCommentSection];
+//            NSArray *indexArray = [NSArray arrayWithObjects:path1,nil];
+//            
+//            [contentTableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationAutomatic];
+//        }
+//    } failure:^(PANetWorking *service, NSError *error) {
+//        NSLog(@"Do nothing....");
+//    }];
+    
+//    NSTimer* timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:30] interval:3 target:self selector:@selector(test) userInfo:Nil repeats:NO];
+//    [timer fire];
+    
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(test) userInfo:nil repeats:NO];
+}
+
+- (void)test{
+    [[PAPrayerService shareInstance] setPrayActionForlisting:prayerItem.prayerID userId:@"9912" success:^(PANetWorking *service, id responseObject) {
+        isLoadingChats = NO;
+        [contentTableView reloadData];
+        
+        if ([responseObject isKindOfClass:[PAComment class]]){
+            PAComment* comment = responseObject;
+            [commentListing insertObject:comment atIndex:0];
+            NSIndexPath *path1 = [NSIndexPath indexPathForRow:0 inSection:kCommentSection];
+            NSArray *indexArray = [NSArray arrayWithObjects:path1,nil];
+            
+            [contentTableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    } failure:^(PANetWorking *service, NSError *error) {
+        NSLog(@"Do nothing....");
+    }];
 }
 @end
