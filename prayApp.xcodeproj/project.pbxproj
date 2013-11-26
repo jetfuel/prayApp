@@ -24,6 +24,7 @@
 		0D549B0C17BB17A5008E0216 /* PAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D549B0B17BB17A5008E0216 /* PAHomeViewController.m */; };
 		0D549B0E17BB188C008E0216 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D549B0D17BB188C008E0216 /* Storyboard.storyboard */; };
 		0D549B2017BC101F008E0216 /* PAPrayListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D549B1F17BC101F008E0216 /* PAPrayListTableViewCell.m */; };
+		0D6B64DB1844228C001656C9 /* PAEncourageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B64DA1844228C001656C9 /* PAEncourageView.m */; };
 		0D850ABD1831C56C008AC10E /* pray_detail_icon_example@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D850ABB1831C56C008AC10E /* pray_detail_icon_example@2x.png */; };
 		0D850ABE1831C56C008AC10E /* pray_detail_icon_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */; };
 		0D8B6BB017BED0C10055223A /* PAPrayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */; };
@@ -88,6 +89,8 @@
 		0D549B0D17BB188C008E0216 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		0D549B1E17BC101F008E0216 /* PAPrayListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPrayListTableViewCell.h; sourceTree = "<group>"; };
 		0D549B1F17BC101F008E0216 /* PAPrayListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPrayListTableViewCell.m; sourceTree = "<group>"; };
+		0D6B64D91844228C001656C9 /* PAEncourageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PAEncourageView.h; path = PrayerDetail/PAEncourageView.h; sourceTree = "<group>"; };
+		0D6B64DA1844228C001656C9 /* PAEncourageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAEncourageView.m; path = PrayerDetail/PAEncourageView.m; sourceTree = "<group>"; };
 		0D850ABB1831C56C008AC10E /* pray_detail_icon_example@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pray_detail_icon_example@2x.png"; sourceTree = "<group>"; };
 		0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pray_detail_icon_example.png; sourceTree = "<group>"; };
 		0D8B6BAE17BED0C10055223A /* PAPrayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPrayerDetailViewController.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */,
 				0D367D7C183EEEE9008F661B /* PACommentTableViewCell.h */,
 				0D367D7D183EEEE9008F661B /* PACommentTableViewCell.m */,
+				0D6B64D91844228C001656C9 /* PAEncourageView.h */,
+				0D6B64DA1844228C001656C9 /* PAEncourageView.m */,
 			);
 			name = MIP;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				0DDCDCF617BAFBDB00DFAAFE /* AFURLConnectionOperation.m in Sources */,
 				0DDCDCF717BAFBDB00DFAAFE /* AFXMLRequestOperation.m in Sources */,
 				0D0A39CB17C68901002FF4A3 /* PAPrayerService.m in Sources */,
+				0D6B64DB1844228C001656C9 /* PAEncourageView.m in Sources */,
 				0D8B6BB017BED0C10055223A /* PAPrayerDetailViewController.m in Sources */,
 				0DDCDCF817BAFBDB00DFAAFE /* UIImageView+AFNetworking.m in Sources */,
 			);

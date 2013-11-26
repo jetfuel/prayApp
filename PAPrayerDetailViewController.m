@@ -18,7 +18,6 @@
 
 @implementation PAPrayerDetailViewController
 @synthesize prayerDetailLabel, prayerGroupLabel, prayerItem, prayerTitleLabel, lastUpdatedLabel, contentTableView, descriptionImageView;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,7 +43,6 @@
         [prayerDetailView addSubview:prayerTitleLabel];
         [prayerDetailView addSubview:prayerGroupLabel];
         [prayerDetailView addSubview:prayerDetailLabel];
-        
     }
     return self;
 }
@@ -61,6 +59,19 @@
     
     [contentTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [contentTableView setBackgroundColor:[UIColor colorWithRed:(242.0f/255.0f) green:(242.0f/255.0f) blue:(242.0f/255.0f) alpha:1]];
+    
+    //encourage view
+    encourageView = [[PAEncourageView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44)];
+    encourageView.delegate = self;
+    encourageView.backgroundColor = self.navigationController.navigationBar.barTintColor;
+    [self.view addSubview:encourageView];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+    encourageView.frame = CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44);
+    isEncourageViewHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -201,5 +212,32 @@
         [cell updateWithComment:comment];
         return cell;
     }
+}
+
+//// scrollview delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    if ([scrollView.panGestureRecognizer translationInView:scrollView].y > 0) {
+        // scroll up.. present the encourage section.
+        if (isEncourageViewHidden == YES){
+            isEncourageViewHidden = NO;
+            [UIView animateWithDuration:0.35 animations:^{
+                CGRect frame = encourageView.frame;
+                frame.origin.y -= frame.size.height;
+                encourageView.frame = frame;
+            }];
+        }
+    } else {
+        // scroll to reveal more chats, hide the encourageview
+        if (isEncourageViewHidden == NO){
+            isEncourageViewHidden = YES;
+            [UIView animateWithDuration:0.35 animations:^{
+                CGRect frame = encourageView.frame;
+                frame.origin.y += frame.size.height;
+                encourageView.frame = frame;
+            }];
+        }
+    }
+    
 }
 @end
