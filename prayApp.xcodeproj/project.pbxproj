@@ -37,6 +37,7 @@
 		0DA383C6185169F90012439B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383C5185169F90012439B /* Social.framework */; };
 		0DCD58E218516E7800F44D50 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD58E118516E7800F44D50 /* Firebase.framework */; };
 		0DCD58E418516E9100F44D50 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD58E318516E9100F44D50 /* FirebaseSimpleLogin.framework */; };
+		0DCD58E81851732600F44D50 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD58E71851732600F44D50 /* FacebookSDK.framework */; };
 		0DDCDCDB17BAFB8E00DFAAFE /* PANetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCDA17BAFB8E00DFAAFE /* PANetWorking.m */; };
 		0DDCDCF017BAFBDB00DFAAFE /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCDE17BAFBDB00DFAAFE /* AFHTTPClient.m */; };
 		0DDCDCF117BAFBDB00DFAAFE /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCE017BAFBDB00DFAAFE /* AFHTTPRequestOperation.m */; };
@@ -113,6 +114,7 @@
 		0DA383C5185169F90012439B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		0DCD58E118516E7800F44D50 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		0DCD58E318516E9100F44D50 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
+		0DCD58E71851732600F44D50 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		0DDCDCD917BAFB8E00DFAAFE /* PANetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PANetWorking.h; path = Service/PANetWorking.h; sourceTree = "<group>"; };
 		0DDCDCDA17BAFB8E00DFAAFE /* PANetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PANetWorking.m; path = Service/PANetWorking.m; sourceTree = "<group>"; };
 		0DDCDCDD17BAFBDB00DFAAFE /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				0DCD58E218516E7800F44D50 /* Firebase.framework in Frameworks */,
 				0DA383BE185169C70012439B /* CFNetwork.framework in Frameworks */,
 				0DA383BC185169BB0012439B /* libc++.dylib in Frameworks */,
+				0DCD58E81851732600F44D50 /* FacebookSDK.framework in Frameworks */,
 				0DA383BA185169B00012439B /* libicucore.dylib in Frameworks */,
 				0DDFA81B17A9C3EC00D9B794 /* UIKit.framework in Frameworks */,
 				0DDFA81D17A9C3EC00D9B794 /* Foundation.framework in Frameworks */,
@@ -308,6 +311,7 @@
 		0DDFA81917A9C3EC00D9B794 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DCD58E71851732600F44D50 /* FacebookSDK.framework */,
 				0DCD58E318516E9100F44D50 /* FirebaseSimpleLogin.framework */,
 				0DCD58E118516E7800F44D50 /* Firebase.framework */,
 				0DA383C5185169F90012439B /* Social.framework */,
@@ -620,6 +624,7 @@
 					"$(inherited)",
 					/Users/jeffwang/Downloads/prayApp,
 					/Users/jeffwang/Documents/prayApp,
+					/Users/jeffwang/work/prayApp,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayApp/prayApp-Prefix.pch";
@@ -638,6 +643,7 @@
 					"$(inherited)",
 					/Users/jeffwang/Downloads/prayApp,
 					/Users/jeffwang/Documents/prayApp,
+					/Users/jeffwang/work/prayApp,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayApp/prayApp-Prefix.pch";

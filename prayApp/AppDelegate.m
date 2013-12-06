@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "PAHomeViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -54,4 +56,14 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    
+    // FBSample logic
+    // We need to handle URLs by passing them to FBSession in order
+    // for SSO authentication to work.
+    
+    return [FBSession.activeSession handleOpenURL:url];
+    
+    
+}
 @end
