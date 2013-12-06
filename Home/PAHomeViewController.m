@@ -11,6 +11,8 @@
 #import "PAPrayListTableViewCell.h"
 #import "PAPrayerDetailViewController.h"
 #import "PAPrayerService.h"
+#import <Firebase/Firebase.h>
+#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 
 @interface PAHomeViewController ()
 
@@ -48,6 +50,30 @@
     } failure:^(PANetWorking *service, NSError *error) {
         ;
     }];
+    
+    // Create a reference to a Firebase location
+    Firebase* ref = [[Firebase alloc] initWithUrl:@"https://praylist.firebaseio.com/"];
+    FirebaseSimpleLogin* authClient = [[FirebaseSimpleLogin alloc] initWithRef:ref];
+    [authClient checkAuthStatusWithBlock:^(NSError* error, FAUser* user) {
+        if (error != nil) {
+            NSLog(@"Oh no! There was an error performing the check");
+        } else if (user == nil) {
+            NSLog(@"No user is logged in");
+        } else {
+            NSLog(@"There is a logged in user");
+        }
+    }];
+
+    [authClient loginToFacebookAppWithId:@"244636579034958" permissions:@[@"email"]
+                                audience:ACFacebookAudienceOnlyMe
+                     withCompletionBlock:^(NSError *error, FAUser *user) {
+                         
+                         if (error != nil) {
+                             NSLog(@"There was an error logging in: %@", error);
+                         } else {
+                             NSLog(@"We have a logged in facebook user");
+                         }
+                     }];
 }
 
 - (void)didReceiveMemoryWarning
