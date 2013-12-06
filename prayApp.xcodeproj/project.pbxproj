@@ -28,8 +28,6 @@
 		0D850ABD1831C56C008AC10E /* pray_detail_icon_example@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D850ABB1831C56C008AC10E /* pray_detail_icon_example@2x.png */; };
 		0D850ABE1831C56C008AC10E /* pray_detail_icon_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */; };
 		0D8B6BB017BED0C10055223A /* PAPrayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */; };
-		0DA383B6185169740012439B /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383B5185169740012439B /* Firebase.framework */; };
-		0DA383B81851697F0012439B /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383B71851697F0012439B /* FirebaseSimpleLogin.framework */; };
 		0DA383BA185169B00012439B /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383B9185169B00012439B /* libicucore.dylib */; };
 		0DA383BC185169BB0012439B /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383BB185169BB0012439B /* libc++.dylib */; };
 		0DA383BE185169C70012439B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383BD185169C70012439B /* CFNetwork.framework */; };
@@ -37,6 +35,8 @@
 		0DA383C2185169D50012439B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383C1185169D40012439B /* SystemConfiguration.framework */; };
 		0DA383C4185169F40012439B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383C3185169F40012439B /* Accounts.framework */; };
 		0DA383C6185169F90012439B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383C5185169F90012439B /* Social.framework */; };
+		0DCD58E218516E7800F44D50 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD58E118516E7800F44D50 /* Firebase.framework */; };
+		0DCD58E418516E9100F44D50 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD58E318516E9100F44D50 /* FirebaseSimpleLogin.framework */; };
 		0DDCDCDB17BAFB8E00DFAAFE /* PANetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCDA17BAFB8E00DFAAFE /* PANetWorking.m */; };
 		0DDCDCF017BAFBDB00DFAAFE /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCDE17BAFBDB00DFAAFE /* AFHTTPClient.m */; };
 		0DDCDCF117BAFBDB00DFAAFE /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCDCE017BAFBDB00DFAAFE /* AFHTTPRequestOperation.m */; };
@@ -104,8 +104,6 @@
 		0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pray_detail_icon_example.png; sourceTree = "<group>"; };
 		0D8B6BAE17BED0C10055223A /* PAPrayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPrayerDetailViewController.h; sourceTree = "<group>"; };
 		0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPrayerDetailViewController.m; sourceTree = "<group>"; };
-		0DA383B5185169740012439B /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
-		0DA383B71851697F0012439B /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
 		0DA383B9185169B00012439B /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		0DA383BB185169BB0012439B /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		0DA383BD185169C70012439B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -113,6 +111,8 @@
 		0DA383C1185169D40012439B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0DA383C3185169F40012439B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0DA383C5185169F90012439B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		0DCD58E118516E7800F44D50 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		0DCD58E318516E9100F44D50 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
 		0DDCDCD917BAFB8E00DFAAFE /* PANetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PANetWorking.h; path = Service/PANetWorking.h; sourceTree = "<group>"; };
 		0DDCDCDA17BAFB8E00DFAAFE /* PANetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PANetWorking.m; path = Service/PANetWorking.m; sourceTree = "<group>"; };
 		0DDCDCDD17BAFBDB00DFAAFE /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -162,17 +162,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DA383C6185169F90012439B /* Social.framework in Frameworks */,
+				0DCD58E418516E9100F44D50 /* FirebaseSimpleLogin.framework in Frameworks */,
 				0DA383C4185169F40012439B /* Accounts.framework in Frameworks */,
 				0DA383C2185169D50012439B /* SystemConfiguration.framework in Frameworks */,
 				0DA383C0185169CE0012439B /* Security.framework in Frameworks */,
+				0DCD58E218516E7800F44D50 /* Firebase.framework in Frameworks */,
 				0DA383BE185169C70012439B /* CFNetwork.framework in Frameworks */,
 				0DA383BC185169BB0012439B /* libc++.dylib in Frameworks */,
 				0DA383BA185169B00012439B /* libicucore.dylib in Frameworks */,
 				0DDFA81B17A9C3EC00D9B794 /* UIKit.framework in Frameworks */,
 				0DDFA81D17A9C3EC00D9B794 /* Foundation.framework in Frameworks */,
 				0DDFA81F17A9C3EC00D9B794 /* CoreGraphics.framework in Frameworks */,
-				0DA383B6185169740012439B /* Firebase.framework in Frameworks */,
-				0DA383B81851697F0012439B /* FirebaseSimpleLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +308,8 @@
 		0DDFA81917A9C3EC00D9B794 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DCD58E318516E9100F44D50 /* FirebaseSimpleLogin.framework */,
+				0DCD58E118516E7800F44D50 /* Firebase.framework */,
 				0DA383C5185169F90012439B /* Social.framework */,
 				0DA383C3185169F40012439B /* Accounts.framework */,
 				0DA383C1185169D40012439B /* SystemConfiguration.framework */,
@@ -315,8 +317,6 @@
 				0DA383BD185169C70012439B /* CFNetwork.framework */,
 				0DA383BB185169BB0012439B /* libc++.dylib */,
 				0DA383B9185169B00012439B /* libicucore.dylib */,
-				0DA383B71851697F0012439B /* FirebaseSimpleLogin.framework */,
-				0DA383B5185169740012439B /* Firebase.framework */,
 				0DDFA81A17A9C3EC00D9B794 /* UIKit.framework */,
 				0DDFA81C17A9C3EC00D9B794 /* Foundation.framework */,
 				0DDFA81E17A9C3EC00D9B794 /* CoreGraphics.framework */,
@@ -619,6 +619,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/jeffwang/Downloads/prayApp,
+					/Users/jeffwang/Documents/prayApp,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayApp/prayApp-Prefix.pch";
@@ -636,6 +637,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/jeffwang/Downloads/prayApp,
+					/Users/jeffwang/Documents/prayApp,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "prayApp/prayApp-Prefix.pch";

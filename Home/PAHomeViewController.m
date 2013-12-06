@@ -11,7 +11,6 @@
 #import "PAPrayListTableViewCell.h"
 #import "PAPrayerDetailViewController.h"
 #import "PAPrayerService.h"
-#import <Firebase/Firebase.h>
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 
 @interface PAHomeViewController ()
