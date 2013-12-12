@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "PAHomeViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "PACheckAuthStatusViewController.h"
 
 @implementation AppDelegate
 
@@ -22,10 +23,11 @@
     
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:143.0/255.0 green:91.0/255.0 blue:79.0/255.0 alpha:1]];
     
-    UIStoryboard *myBookStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
-    PAHomeViewController* homeVC = [myBookStoryboard instantiateInitialViewController];
+//    UIStoryboard *myBookStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+//    PAHomeViewController* homeVC = [myBookStoryboard instantiateInitialViewController];
+    PACheckAuthStatusViewController* checkAuthViewController = [[PACheckAuthStatusViewController alloc] init];
     
-    [self.window setRootViewController:homeVC];
+    [self.window setRootViewController:checkAuthViewController];
     return YES;
 }
 

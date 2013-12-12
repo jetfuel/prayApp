@@ -9,6 +9,9 @@
 #import "PAPrayerService.h"
 #import "PAPrayer.h"
 #import "PAComment.h"
+#import <Firebase/Firebase.h>
+#define kFireBaseURL @"https://praylist.firebaseio.com/"
+
 @implementation PAPrayerService
 
 +(id)shareInstance{
