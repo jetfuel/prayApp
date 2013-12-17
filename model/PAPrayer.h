@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString* prayerID;
 @property (nonatomic, strong) NSString* userID;
 @property (nonatomic, strong) NSString* userNameString;
-
+@property (nonatomic, strong) NSMutableArray* commentList;
 @property (nonatomic, strong) NSDate* createdDate;
 
 @property (nonatomic, strong) NSString* statusUpdate;

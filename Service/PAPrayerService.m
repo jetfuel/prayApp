@@ -9,8 +9,9 @@
 #import "PAPrayerService.h"
 #import "PAPrayer.h"
 #import "PAComment.h"
-#import <Firebase/Firebase.h>
 #define kFireBaseURL @"https://praylist.firebaseio.com/"
+#define kFireBasePrayerURL @"https://praylist.firebaseio.com/prayers"
+#define kFireBaseUserURL @"https://praylist.firebaseio.com/users"
 
 @implementation PAPrayerService
 
@@ -24,6 +25,22 @@
     
     return _shareInstance;
 }
+
++ (Firebase *)getFireBaseRef{
+    Firebase* ref = [[Firebase alloc] initWithUrl:kFireBaseURL];
+    return ref;
+}
+
++ (Firebase*)getFireBasePrayerRef{
+    Firebase* ref = [[Firebase alloc] initWithUrl:kFireBasePrayerURL];
+    return ref;
+}
+
++ (Firebase*)getFireBaseUserRef{
+    Firebase* ref = [[Firebase alloc] initWithUrl:kFireBaseUserURL];
+    return ref;
+}
+
 
 - (void)getPrayerList:(NSString*) userId
               success:(serviceSuccessBlock) success

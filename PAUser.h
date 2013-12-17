@@ -10,4 +10,10 @@
 
 @interface PAUser : NSObject
 
+@property (nonatomic, strong) NSString* userName;
+@property (nonatomic, strong) NSString* userID;
+@property (nonatomic, strong) NSMutableArray* groupList;
+@property (nonatomic, strong) NSMutableArray* prayerList;
+
+- (id)initWithDict:(NSDictionary*)dict;
 @end

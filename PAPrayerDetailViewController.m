@@ -101,19 +101,23 @@
     descriptionImageView.image = [UIImage imageNamed:@"pray_detail_icon_example.png"];
 //    descriptionImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, descriptionImageView.image.size.height);
     [self updateprayerDetailViewLayout];
-    isLoadingChats = YES;
+//    isLoadingChats = YES;
+    [commentListing addObjectsFromArray:prayer.commentList];
+
+    NSLog(@"%@", commentListing);
     [contentTableView reloadData];
     
-    [[PAPrayerService shareInstance] getChatListing:self.prayerItem.prayerID offset:0 limits:10 success:^(PANetWorking *service, id responseObject) {
-        isLoadingChats = NO;
-        
-        [commentListing addObjectsFromArray:responseObject];
-        
-        [contentTableView reloadData];
-    } failure:^(PANetWorking *service, NSError *error) {
-        isLoadingChats = NO;
-        [contentTableView reloadData];
-    }];
+    
+//    [[PAPrayerService shareInstance] getChatListing:self.prayerItem.prayerID offset:0 limits:10 success:^(PANetWorking *service, id responseObject) {
+//        isLoadingChats = NO;
+//        
+//        [commentListing addObjectsFromArray:responseObject];
+//        
+//        [contentTableView reloadData];
+//    } failure:^(PANetWorking *service, NSError *error) {
+//        isLoadingChats = NO;
+//        [contentTableView reloadData];
+//    }];
 }
 
 - (void)updateprayerDetailViewLayout{
@@ -137,12 +141,6 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.row == 0){
-//        return [UIImage imageNamed:@"pray_detail_icon_example.png"].size.height;
-//    }
-//    else if (indexPath.row == 1){
-//        return prayerDetailView.frame.size.height;
-//    }
     if (indexPath.section == kDetailSection){
         if (indexPath.row == 0){
             return prayerDetailView.frame.size.height;

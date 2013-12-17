@@ -7,8 +7,13 @@
 //
 
 #import "PANetWorking.h"
+#import <Firebase/Firebase.h>
 
 @interface PAPrayerService : PANetWorking
++ (Firebase*)getFireBaseRef;
++ (Firebase*)getFireBasePrayerRef;
++ (Firebase*)getFireBaseUserRef;
+
 - (void)getPrayerList:(NSString*) userId
               success:(serviceSuccessBlock) success
               failure:(serviceFailureBlock) failure;

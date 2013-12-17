@@ -12,7 +12,7 @@
 #import "PAPrayerDetailViewController.h"
 #import "PAPrayerService.h"
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
-
+#import "PAUser.h"
 @interface PAHomeViewController ()
 
 @end
@@ -40,25 +40,32 @@
         prayListTableView = [[UITableView alloc] init];
     }
     
+    if (prayerItemList == nil)
+        prayerItemList = [[NSMutableArray alloc] init];
+
+    
     [prayListTableView registerClass:[PAPrayListTableViewCell class] forCellReuseIdentifier:@"CellI"];
-    [[PAPrayerService shareInstance] getPrayerList:@"1" success:^(PANetWorking *service, id responseObject) {
-        prayerItemList = responseObject;
-        
-        NSLog(@"%@", prayerItemList);
-        [prayListTableView reloadData];
-    } failure:^(PANetWorking *service, NSError *error) {
-        ;
-    }];
+//    [[PAPrayerService shareInstance] getPrayerList:@"1" success:^(PANetWorking *service, id responseObject) {
+//        [prayerItemList addObjectsFromArray:responseObject];//responseObject;
+//        
+//        NSLog(@"%@", prayerItemList);
+//        [prayListTableView reloadData];
+//    } failure:^(PANetWorking *service, NSError *error) {
+//        ;
+//    }];
     
     // Create a reference to a Firebase location
-//    Firebase* ref = [[Firebase alloc] initWithUrl:@"https://praylist.firebaseio.com/users/demo-users"];
-//    [ref observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-//        if (snapshot.value == nil){
-//            NSLog(@"no such user");
-//        }
-//        else
-//            NSLog(@"!!!! %@", snapshot.value);
-//    }];
+    Firebase* ref = [[Firebase alloc] initWithUrl:@"https://praylist.firebaseio.com/users/demo-user"];
+    [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        if (snapshot.value == nil){
+            NSLog(@"no such user");
+        }
+        else{
+            PAUser* theUser = [[PAUser alloc] initWithDict:snapshot.value];
+            theUser.userID = @"demo-user";
+            [self fetchPrayerDetails:theUser];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +74,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+// read the prayers from the server
+- (void)fetchPrayerDetails:(PAUser*)user{
+    NSArray* prayerList = user.prayerList;
+    
+    // Need to go through the whole list.... is there is better way to do this?
+    for (int i = 0; i < prayerList.count; i++) {
+        NSString* prayerID = [prayerList objectAtIndex:i];
+        Firebase* ref = [[PAPrayerService getFireBasePrayerRef] childByAppendingPath:prayerID];
+        [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            if (snapshot.value != [NSNull null]){
+                PAPrayer* prayItem = [[PAPrayer alloc] initWithDictionary:snapshot.value];
+                prayItem.prayerID = prayerID;
+                NSLog(@"Read: %@", snapshot.value);
+                NSLog(@"Read: %@", prayItem);
+
+                prayItem.userNameString = user.userName;
+                [prayerItemList addObject:prayItem];
+                
+                [prayListTableView reloadData];
+            }
+        }];
+    }
+
+    
+}
+// TableView delegate and database
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [prayerItemList count];
 }

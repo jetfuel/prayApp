@@ -7,9 +7,10 @@
 //
 
 #import "PAPrayer.h"
+#import "PAComment.h"
 
 @implementation PAPrayer
-@synthesize prayerContext, prayerID, prayerTitle, userID, createdDate, statusUpdate, statusUpdateID, groupID, groupName, userNameString;
+@synthesize prayerContext, prayerID, prayerTitle, userID, createdDate, statusUpdate, statusUpdateID, groupID, groupName, userNameString, commentList;
 
 
 - (id)initWithDictionary:(NSDictionary*)dict{
@@ -17,25 +18,33 @@
     
     if (self){
         if (dict != nil){
+            if ([dict objectForKey:@"context"])
+                self.prayerContext = [dict objectForKey:@"context"];
             
-            @try {
-                [self setValuesForKeysWithDictionary:dict];
-            }
-            @catch (NSException *exception) {
-                NSLog(@"exception is %@",exception);
-            }
+            if ([dict objectForKey:@"prayerID"])
+                self.prayerID = [dict objectForKey:@"prayerID"];
             
-//            if ([dict objectForKey:@"prayerContext"])
-//                self.prayerContext = [dict objectForKey:@"prayerContext"];
-//            
-//            if ([dict objectForKey:@"prayerID"])
-//                self.prayerID = [dict objectForKey:@"prayerID"];
-//            
-//            if ([dict objectForKey:@"prayerTitle"])
-//                self.prayerTitle = [dict objectForKey:@"prayerTitle"];
-//            
-//            if ([dict objectForKey:@"createdDate"])
-//                self.createdDate = [dict objectForKey:@"createdDate"];
+            if ([dict objectForKey:@"prayer"])
+                self.prayerTitle = [dict objectForKey:@"prayer"];
+            
+            if ([dict objectForKey:@"createdDate"])
+                self.createdDate = [dict objectForKey:@"createdDate"];
+            
+            if ([dict objectForKey:@"group"])
+                self.groupName = [dict objectForKey:@"group"];
+            
+            if ([dict objectForKey:@"owner"])
+                self.userNameString = [dict objectForKey:@"owner"];
+            
+            if ([dict objectForKey:@"comments"]){
+                commentList = [[NSMutableArray alloc] init];
+                NSArray* commentsDict = [dict objectForKey:@"comments"];
+                
+                for (int i = 0; i < [commentsDict count]; i++) {
+                    PAComment * comment = [[PAComment alloc] initWithDictionary:[commentsDict objectAtIndex:i]];
+                    [commentList addObject:comment];
+                }
+            }
         }
     }
     
