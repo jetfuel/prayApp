@@ -10,7 +10,10 @@
 
 @interface PAHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
     NSMutableArray* prayerItemList;
+    NSMutableArray* prayerGroupList;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView* prayListTableView;
+- (IBAction) addPrayer:(UIBarButtonItem*)addButton;
+
 @end

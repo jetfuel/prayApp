@@ -13,7 +13,10 @@
 #import "PAPrayerService.h"
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 #import "PAUser.h"
-@interface PAHomeViewController ()
+#import "PAAddPrayerViewController.h"
+@interface PAHomeViewController (){
+    UIBarButtonItem* addPrayerButton;
+}
 
 @end
 
@@ -42,7 +45,6 @@
     
     if (prayerItemList == nil)
         prayerItemList = [[NSMutableArray alloc] init];
-
     
     [prayListTableView registerClass:[PAPrayListTableViewCell class] forCellReuseIdentifier:@"CellI"];
 //    [[PAPrayerService shareInstance] getPrayerList:@"1" success:^(PANetWorking *service, id responseObject) {
@@ -63,6 +65,7 @@
         else{
             PAUser* theUser = [[PAUser alloc] initWithDict:snapshot.value];
             theUser.userID = @"demo-user";
+            prayerGroupList = theUser.groupList;
             [self fetchPrayerDetails:theUser];
         }
     }];
@@ -86,9 +89,6 @@
             if (snapshot.value != [NSNull null]){
                 PAPrayer* prayItem = [[PAPrayer alloc] initWithDictionary:snapshot.value];
                 prayItem.prayerID = prayerID;
-                NSLog(@"Read: %@", snapshot.value);
-                NSLog(@"Read: %@", prayItem);
-
                 prayItem.userNameString = user.userName;
                 [prayerItemList addObject:prayItem];
                 
@@ -96,8 +96,19 @@
             }
         }];
     }
+}
 
-    
+//- (IBAction) addPrayer:(UIBarButtonItem*)addButton{
+//    PAAddPrayerViewController* addPrayerViewController = [[PAAddPrayerViewController alloc] init];
+//    NSLog(@"???? %@", prayerGroupList);
+//
+//    [self.navigationController pushViewController:addPrayerViewController animated:YES];
+//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"addNewPrayer"]){
+        PAAddPrayerViewController* addPrayerViewController = [segue destinationViewController];
+        addPrayerViewController.prayerGroupList = prayerGroupList;
+    }
 }
 // TableView delegate and database
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

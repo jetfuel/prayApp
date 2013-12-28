@@ -27,6 +27,7 @@
 		0D6B64DB1844228C001656C9 /* PAEncourageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B64DA1844228C001656C9 /* PAEncourageView.m */; };
 		0D850ABD1831C56C008AC10E /* pray_detail_icon_example@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D850ABB1831C56C008AC10E /* pray_detail_icon_example@2x.png */; };
 		0D850ABE1831C56C008AC10E /* pray_detail_icon_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */; };
+		0D88A33C186E39E100EF4ACB /* PAGroupSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D88A33B186E39E100EF4ACB /* PAGroupSelectionViewController.m */; };
 		0D8B6BB017BED0C10055223A /* PAPrayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */; };
 		0D96814718593DEC002FD823 /* PAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D96814618593DEC002FD823 /* PAUser.m */; };
 		0DA383BA185169B00012439B /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383B9185169B00012439B /* libicucore.dylib */; };
@@ -36,6 +37,7 @@
 		0DA383C2185169D50012439B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383C1185169D40012439B /* SystemConfiguration.framework */; };
 		0DA383C4185169F40012439B /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383C3185169F40012439B /* Accounts.framework */; };
 		0DA383C6185169F90012439B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA383C5185169F90012439B /* Social.framework */; };
+		0DBCDD5B185FDAF200424B59 /* PAAddPrayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DBCDD5A185FDAF200424B59 /* PAAddPrayerViewController.m */; };
 		0DCD58E218516E7800F44D50 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD58E118516E7800F44D50 /* Firebase.framework */; };
 		0DCD58E418516E9100F44D50 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD58E318516E9100F44D50 /* FirebaseSimpleLogin.framework */; };
 		0DCD58EA185177B600F44D50 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD58E9185177B600F44D50 /* FacebookSDK.framework */; };
@@ -105,6 +107,8 @@
 		0D6B64DA1844228C001656C9 /* PAEncourageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAEncourageView.m; path = PrayerDetail/PAEncourageView.m; sourceTree = "<group>"; };
 		0D850ABB1831C56C008AC10E /* pray_detail_icon_example@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pray_detail_icon_example@2x.png"; sourceTree = "<group>"; };
 		0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pray_detail_icon_example.png; sourceTree = "<group>"; };
+		0D88A33A186E39E100EF4ACB /* PAGroupSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAGroupSelectionViewController.h; sourceTree = "<group>"; };
+		0D88A33B186E39E100EF4ACB /* PAGroupSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAGroupSelectionViewController.m; sourceTree = "<group>"; };
 		0D8B6BAE17BED0C10055223A /* PAPrayerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPrayerDetailViewController.h; sourceTree = "<group>"; };
 		0D8B6BAF17BED0C10055223A /* PAPrayerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPrayerDetailViewController.m; sourceTree = "<group>"; };
 		0D96814518593DEC002FD823 /* PAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAUser.h; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 		0DA383C1185169D40012439B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0DA383C3185169F40012439B /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0DA383C5185169F90012439B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		0DBCDD59185FDAF200424B59 /* PAAddPrayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAAddPrayerViewController.h; sourceTree = "<group>"; };
+		0DBCDD5A185FDAF200424B59 /* PAAddPrayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAAddPrayerViewController.m; sourceTree = "<group>"; };
 		0DCD58E118516E7800F44D50 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		0DCD58E318516E9100F44D50 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
 		0DCD58E9185177B600F44D50 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -242,6 +248,7 @@
 		0D549B0F17BBF59F008E0216 /* MyPrayerList */ = {
 			isa = PBXGroup;
 			children = (
+				0DBCDD58185FDAB700424B59 /* Add prayer */,
 				0D367D7B183EEAD7008F661B /* MIP */,
 				0D549B0A17BB17A5008E0216 /* PAHomeViewController.h */,
 				0D549B0B17BB17A5008E0216 /* PAHomeViewController.m */,
@@ -262,6 +269,17 @@
 				0D850ABC1831C56C008AC10E /* pray_detail_icon_example.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		0DBCDD58185FDAB700424B59 /* Add prayer */ = {
+			isa = PBXGroup;
+			children = (
+				0DBCDD59185FDAF200424B59 /* PAAddPrayerViewController.h */,
+				0DBCDD5A185FDAF200424B59 /* PAAddPrayerViewController.m */,
+				0D88A33A186E39E100EF4ACB /* PAGroupSelectionViewController.h */,
+				0D88A33B186E39E100EF4ACB /* PAGroupSelectionViewController.m */,
+			);
+			name = "Add prayer";
 			sourceTree = "<group>";
 		};
 		0DDCDCDC17BAFBDB00DFAAFE /* AFNetworking */ = {
@@ -519,6 +537,8 @@
 				0DDCDCF117BAFBDB00DFAAFE /* AFHTTPRequestOperation.m in Sources */,
 				0DDCDCF217BAFBDB00DFAAFE /* AFImageRequestOperation.m in Sources */,
 				0DDCDCF317BAFBDB00DFAAFE /* AFJSONRequestOperation.m in Sources */,
+				0D88A33C186E39E100EF4ACB /* PAGroupSelectionViewController.m in Sources */,
+				0DBCDD5B185FDAF200424B59 /* PAAddPrayerViewController.m in Sources */,
 				0DDCDCF417BAFBDB00DFAAFE /* AFNetworkActivityIndicatorManager.m in Sources */,
 				0DDCDCF517BAFBDB00DFAAFE /* AFPropertyListRequestOperation.m in Sources */,
 				0DDCDCF617BAFBDB00DFAAFE /* AFURLConnectionOperation.m in Sources */,
