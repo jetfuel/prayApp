@@ -18,6 +18,7 @@
     
     if (self){
         if (dict != nil){
+            NSLog(@"The dict is %@", dict);
             if ([dict objectForKey:@"context"])
                 self.prayerContext = [dict objectForKey:@"context"];
             
@@ -38,12 +39,12 @@
             
             if ([dict objectForKey:@"comments"]){
                 commentList = [[NSMutableArray alloc] init];
-                NSArray* commentsDict = [dict objectForKey:@"comments"];
-                
-                for (int i = 0; i < [commentsDict count]; i++) {
-                    PAComment * comment = [[PAComment alloc] initWithDictionary:[commentsDict objectAtIndex:i]];
-                    [commentList addObject:comment];
-                }
+//                NSArray* commentsDict = [dict objectForKey:@"comments"];
+//                
+//                for (int i = 0; i < [commentsDict count]; i++) {
+//                    PAComment * comment = [[PAComment alloc] initWithDictionary:[commentsDict objectAtIndex:i]];
+//                    [commentList addObject:comment];
+//                }
             }
         }
     }

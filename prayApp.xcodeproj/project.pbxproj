@@ -10,6 +10,7 @@
 		0D0A39CB17C68901002FF4A3 /* PAPrayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A39CA17C68901002FF4A3 /* PAPrayerService.m */; };
 		0D1EDF3917B05CEC000D6EA4 /* PAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1EDF3817B05CEC000D6EA4 /* PAComment.m */; };
 		0D1EDF3C17B05DEF000D6EA4 /* PAPrayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D1EDF3B17B05DEF000D6EA4 /* PAPrayer.m */; };
+		0D31B46A18A083150051A50A /* PAGlobalNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D31B46918A083150051A50A /* PAGlobalNavigationController.m */; };
 		0D367D71183D983A008F661B /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D367D67183D983A008F661B /* OpenSans-Bold.ttf */; };
 		0D367D72183D983A008F661B /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D367D68183D983A008F661B /* OpenSans-BoldItalic.ttf */; };
 		0D367D73183D983A008F661B /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D367D69183D983A008F661B /* OpenSans-ExtraBold.ttf */; };
@@ -86,6 +87,8 @@
 		0D1EDF3817B05CEC000D6EA4 /* PAComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAComment.m; path = model/PAComment.m; sourceTree = "<group>"; };
 		0D1EDF3A17B05DEF000D6EA4 /* PAPrayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PAPrayer.h; path = model/PAPrayer.h; sourceTree = "<group>"; };
 		0D1EDF3B17B05DEF000D6EA4 /* PAPrayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAPrayer.m; path = model/PAPrayer.m; sourceTree = "<group>"; };
+		0D31B46818A083150051A50A /* PAGlobalNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAGlobalNavigationController.h; sourceTree = "<group>"; };
+		0D31B46918A083150051A50A /* PAGlobalNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAGlobalNavigationController.m; sourceTree = "<group>"; };
 		0D367D67183D983A008F661B /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		0D367D68183D983A008F661B /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-BoldItalic.ttf"; path = "../OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		0D367D69183D983A008F661B /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBold.ttf"; path = "../OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -215,6 +218,15 @@
 			name = Service;
 			sourceTree = "<group>";
 		};
+		0D31B46418A081D70051A50A /* Global navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0D31B46818A083150051A50A /* PAGlobalNavigationController.h */,
+				0D31B46918A083150051A50A /* PAGlobalNavigationController.m */,
+			);
+			name = "Global navigation";
+			sourceTree = "<group>";
+		};
 		0D367D52183D957E008F661B /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +260,7 @@
 		0D549B0F17BBF59F008E0216 /* MyPrayerList */ = {
 			isa = PBXGroup;
 			children = (
+				0D31B46418A081D70051A50A /* Global navigation */,
 				0DBCDD58185FDAB700424B59 /* Add prayer */,
 				0D367D7B183EEAD7008F661B /* MIP */,
 				0D549B0A17BB17A5008E0216 /* PAHomeViewController.h */,
@@ -528,6 +541,7 @@
 				0D549B2017BC101F008E0216 /* PAPrayListTableViewCell.m in Sources */,
 				0DDFA82717A9C3EC00D9B794 /* main.m in Sources */,
 				0DDFA82B17A9C3EC00D9B794 /* AppDelegate.m in Sources */,
+				0D31B46A18A083150051A50A /* PAGlobalNavigationController.m in Sources */,
 				0D549B0C17BB17A5008E0216 /* PAHomeViewController.m in Sources */,
 				0D1EDF3917B05CEC000D6EA4 /* PAComment.m in Sources */,
 				0D367D7E183EEEE9008F661B /* PACommentTableViewCell.m in Sources */,

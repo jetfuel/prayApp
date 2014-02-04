@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Global Navigation Controller-->
         <scene sceneID="evw-hv-vWL">
             <objects>
-                <navigationController definesPresentationContext="YES" id="B03-lo-ppI" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="B03-lo-ppI" customClass="PAGlobalNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d8c-lZ-KKa">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -74,6 +74,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Pray List" id="ZcL-Jf-dYH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="PZ5-yZ-ZJ4">
+                            <connections>
+                                <action selector="openMenu:" destination="ZeN-lk-DVf" id="IVg-lV-wy6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="mdB-u6-0Oh">
                             <connections>
                                 <segue destination="Qg4-TP-sTS" kind="push" identifier="addNewPrayer" id="pYd-Ws-TEY"/>

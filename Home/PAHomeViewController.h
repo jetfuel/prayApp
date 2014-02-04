@@ -15,5 +15,6 @@
 
 @property (nonatomic, strong) IBOutlet UITableView* prayListTableView;
 - (IBAction) addPrayer:(UIBarButtonItem*)addButton;
+- (IBAction) openMenu:(id)sender;
 
 @end

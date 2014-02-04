@@ -14,6 +14,7 @@
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 #import "PAUser.h"
 #import "PAAddPrayerViewController.h"
+#import "PAGlobalNavigationController.h"
 @interface PAHomeViewController (){
     UIBarButtonItem* addPrayerButton;
 }
@@ -138,4 +139,9 @@
     [prayerDetailVC updateWithPrayerItem:[prayerItemList objectAtIndex:indexPath.row]];
 
 }
+
+- (IBAction) openMenu:(id)sender{
+    [((PAGlobalNavigationController*)self.navigationController) toggleMenu];
+}
+
 @end
